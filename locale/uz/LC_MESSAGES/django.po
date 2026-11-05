@@ -1,0 +1,729 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-15 20:11+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: uz\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\accounts\models.py:6
+msgid "avatar"
+msgstr ""
+
+#: .\blog\models.py:8 .\blog\models.py:22
+msgid "title"
+msgstr "sarlavha"
+
+#: .\blog\models.py:9 .\blog\models.py:24
+msgid "sub_title"
+msgstr "ostki sarlavha"
+
+#: .\blog\models.py:10 .\blog\models.py:26
+msgid "text"
+msgstr "matn"
+
+#: .\blog\models.py:11 .\blog\models.py:23 .\product\models.py:8
+#: .\product\models.py:79
+msgid "image"
+msgstr "rasm"
+
+#: .\blog\models.py:17
+msgid "Banner"
+msgstr ""
+
+#: .\blog\models.py:18
+msgid "Banners"
+msgstr "Bannerlar"
+
+#: .\blog\models.py:32
+msgid "Post"
+msgstr "Mazaqola"
+
+#: .\blog\models.py:33
+msgid "Posts"
+msgstr "Maqolalar"
+
+#: .\blog\models.py:41 .\blog\models.py:65
+msgid "user"
+msgstr "foydalanuvchi"
+
+#: .\blog\models.py:47
+msgid "post"
+msgstr "maqola"
+
+#: .\blog\models.py:49 .\blog\models.py:71
+msgid "comment"
+msgstr "izoh"
+
+#: .\blog\models.py:50 .\contacts\models.py:10 .\product\models.py:98
+msgid "created_at"
+msgstr "yaratilgan vaqti"
+
+#: .\blog\models.py:56 .\templates\blog-detail.html:179
+msgid "Comment"
+msgstr "Izoh"
+
+#: .\blog\models.py:57 .\templates\blog-detail.html:135
+#: .\templates\shop-single.html:66
+msgid "Comments"
+msgstr "Izohlar"
+
+#: .\blog\models.py:78
+msgid "CommentLike"
+msgstr ""
+
+#: .\blog\models.py:79
+msgid "CommentLikes"
+msgstr ""
+
+#: .\contacts\models.py:5 .\product\models.py:7 .\product\models.py:19
+#: .\product\models.py:54
+msgid "name"
+msgstr "nomi"
+
+#: .\contacts\models.py:6
+msgid "email"
+msgstr ""
+
+#: .\contacts\models.py:7
+msgid "subject"
+msgstr "mavzu"
+
+#: .\contacts\models.py:8
+msgid "message"
+msgstr "xabar"
+
+#: .\contacts\models.py:17
+msgid "Contact"
+msgstr "Aloqa"
+
+#: .\contacts\models.py:18
+msgid "Contacts"
+msgstr "Aloqalar"
+
+#: .\product\models.py:14 .\templates\shop_filters.html:10
+msgid "Category"
+msgstr "Kategoriya"
+
+#: .\product\models.py:15
+msgid "Categories"
+msgstr "Kategoriyalar"
+
+#: .\product\models.py:25 .\templates\shop-single.html:71
+#: .\templates\shop_filters.html:40
+msgid "Brand"
+msgstr "Brend"
+
+#: .\product\models.py:26
+msgid "Brands"
+msgstr "Brendlar"
+
+#: .\product\models.py:30
+msgid "color"
+msgstr "rang"
+
+#: .\product\models.py:38 .\templates\shop_filters.html:69
+msgid "Color"
+msgstr "Rang"
+
+#: .\product\models.py:39
+msgid "Colors"
+msgstr "Ranglar"
+
+#: .\product\models.py:43
+msgid "size"
+msgstr "o'lcham"
+
+#: .\product\models.py:49 .\templates\shop-single.html:103
+#: .\templates\shop_filters.html:56
+msgid "Size"
+msgstr "O'lcham"
+
+#: .\product\models.py:50
+msgid "Sizes"
+msgstr "O'lchamlar"
+
+#: .\product\models.py:59
+msgid "category"
+msgstr "kategoriya"
+
+#: .\product\models.py:65
+msgid "brand"
+msgstr "brend"
+
+#: .\product\models.py:71
+msgid "colors"
+msgstr "ranglar"
+
+#: .\product\models.py:77
+msgid "sizes"
+msgstr "o'lchamlar"
+
+#: .\product\models.py:80
+msgid "price"
+msgstr "narx"
+
+#: .\product\models.py:81
+msgid "short_description"
+msgstr "qisqa tavsif"
+
+#: .\product\models.py:82
+msgid "long_description"
+msgstr "to'liq tavsif"
+
+#: .\product\models.py:83
+msgid "discount"
+msgstr "chegirma"
+
+#: .\product\models.py:89
+msgid "wishlist"
+msgstr "istaklar ro'yxati"
+
+#: .\product\models.py:95
+msgid "cart"
+msgstr "savat"
+
+#: .\product\models.py:104 .\templates\cart.html:269
+#: .\templates\profile.html:421 .\templates\profile.html:457
+msgid "Product"
+msgstr "Mahsulot"
+
+#: .\product\models.py:105
+msgid "Products"
+msgstr "Mahsulotlar"
+
+#: .\templates\about.html:65
+msgid "About Us"
+msgstr "Biz haqimizda"
+
+#: .\templates\about.html:67
+msgid ""
+"\n"
+"                    Lorem ipsum dolor sit amet, consectetur adipisicing "
+"elit, sed do eiusmod\n"
+"                    tempor incididunt ut labore et dolore magna aliqua. Ut "
+"enim ad minim veniam,\n"
+"                    quis nostrud exercitation ullamco laboris nisi ut "
+"aliquip ex ea commodo consequat.\n"
+"                    "
+msgstr ""
+
+#: .\templates\about.html:75
+msgid "About Hero"
+msgstr ""
+
+#: .\templates\about.html:86
+msgid "Our Services"
+msgstr "Xizmatlarimiz"
+
+#: .\templates\about.html:88
+msgid ""
+"\n"
+"                Lorem ipsum dolor sit amet, consectetur adipisicing elit, "
+"sed do eiusmod\n"
+"                Lorem ipsum dolor sit amet.\n"
+"                "
+msgstr ""
+
+#: .\templates\about.html:100
+msgid "Delivery Services"
+msgstr "Etkazib berish xizmatlari"
+
+#: .\templates\about.html:107
+msgid "Shipping & Return"
+msgstr "Yetkazib berish va qaytarish"
+
+#: .\templates\about.html:114
+msgid "Promotion"
+msgstr "Aksiyalar"
+
+#: .\templates\about.html:121
+msgid "24 Hours Service"
+msgstr "24/7 Xizmat ko'rsatish"
+
+#: .\templates\about.html:133 .\templates\shop.html:210
+msgid "Our Brands"
+msgstr "Bizning brendlar"
+
+#: .\templates\about.html:135
+msgid ""
+"\n"
+"                        Lorem ipsum dolor sit amet, consectetur adipisicing "
+"elit, sed do eiusmod\n"
+"                        Lorem ipsum dolor sit amet.\n"
+"                    "
+msgstr ""
+
+#: .\templates\about.html:163 .\templates\about.html:167
+#: .\templates\about.html:171 .\templates\about.html:175
+#: .\templates\about.html:186 .\templates\about.html:190
+#: .\templates\about.html:194 .\templates\about.html:198
+#: .\templates\about.html:209 .\templates\about.html:213
+#: .\templates\about.html:217 .\templates\about.html:221
+#: .\templates\shop.html:237 .\templates\shop.html:241
+#: .\templates\shop.html:245 .\templates\shop.html:249
+#: .\templates\shop.html:260 .\templates\shop.html:264
+#: .\templates\shop.html:268 .\templates\shop.html:272
+#: .\templates\shop.html:283 .\templates\shop.html:287
+#: .\templates\shop.html:291 .\templates\shop.html:295
+msgid "Brand Logo"
+msgstr ""
+
+#: .\templates\about.html:253
+msgid "Latest Blog Posts"
+msgstr "So'nggi blog maqolalari"
+
+#: .\templates\about.html:254
+msgid "News, updates and useful articles from our team"
+msgstr "Jamoamizdan yangiliklar, yangilanishlar va foydali maqolalar"
+
+#: .\templates\about.html:264
+msgid "Blog post"
+msgstr "Blog maqolasi"
+
+#: .\templates\about.html:271
+msgid "Read more"
+msgstr "Batafsil o'qish"
+
+#: .\templates\blog-detail.html:160
+msgid "Show all comments"
+msgstr "Barcha izohlarni ko'rsatish"
+
+#: .\templates\blog-detail.html:173
+msgid "Leave a Comment"
+msgstr "Izoh qoldiring"
+
+#: .\templates\blog-detail.html:181
+msgid "Write your comment..."
+msgstr "Izohingizni yozing..."
+
+#: .\templates\blog-detail.html:185
+msgid "Submit"
+msgstr "Yuborish"
+
+#: .\templates\cart.html:263 .\templates\profile.html:447
+msgid "Shopping Cart"
+msgstr "Xarid savatchasi"
+
+#: .\templates\cart.html:270 .\templates\shop-single.html:78
+msgid "Description"
+msgstr "Tavsif"
+
+#: .\templates\cart.html:271 .\templates\shop-single.html:118
+msgid "Quantity"
+msgstr "Maddor/Soni"
+
+#: .\templates\cart.html:272 .\templates\shop_filters.html:27
+msgid "Price"
+msgstr "Narxi"
+
+#: .\templates\cart.html:305
+msgid "Coupon code"
+msgstr "Kupon kodi"
+
+#: .\templates\cart.html:306
+msgid "Apply Coupon"
+msgstr "Kuponni qo'llash"
+
+#: .\templates\cart.html:308
+msgid "Update Cart"
+msgstr "Savatni yangilash"
+
+#: .\templates\cart.html:314
+msgid "Your cart is empty"
+msgstr "Savatchangiz bo'sh"
+
+#: .\templates\cart.html:315
+msgid "Looks like you haven't added any items to your cart yet."
+msgstr "Hali savatchangizga hech narsa qo'shmadingiz shekilli."
+
+#: .\templates\cart.html:316
+msgid "Continue Shopping"
+msgstr "Xaridni davom ettirish"
+
+#: .\templates\cart.html:321
+msgid "Cart Summary"
+msgstr "Savat xulosasi"
+
+#: .\templates\cart.html:324
+msgid "Subtotal"
+msgstr "Oraliq jami"
+
+#: .\templates\cart.html:329
+msgid "Shipping"
+msgstr "Yetkazib berish"
+
+#: .\templates\cart.html:334
+msgid "Tax"
+msgstr "Soliq"
+
+#: .\templates\cart.html:339
+msgid "Total"
+msgstr "Jami"
+
+#: .\templates\cart.html:344
+msgid "Proceed to Checkout"
+msgstr "Buyurtmani rasmiylashtirish"
+
+#: .\templates\cart.html:348
+msgid "We accept:"
+msgstr "Qabul qilamiz:"
+
+#: .\templates\cart.html:363
+msgid "You May Also Like"
+msgstr "Sizga yoqishi mumkin"
+
+#: .\templates\contact.html:9
+msgid "Contact Us"
+msgstr "Biz bilan bog'lanish"
+
+#: .\templates\contact.html:11
+msgid ""
+"\n"
+"                Proident, sunt in culpa qui officia deserunt mollit anim id "
+"est laborum.\n"
+"                Lorem ipsum dolor sit amet.\n"
+"                "
+msgstr ""
+
+#: .\templates\contact.html:32 .\templates\contact.html:33
+msgid "Name"
+msgstr "Ism"
+
+#: .\templates\contact.html:36 .\templates\contact.html:37
+msgid "Email"
+msgstr ""
+
+#: .\templates\contact.html:41 .\templates\contact.html:42
+msgid "Subject"
+msgstr "Mavzu"
+
+#: .\templates\contact.html:45 .\templates\contact.html:46
+msgid "Message"
+msgstr "Xabar"
+
+#: .\templates\contact.html:50
+msgid "Let’s Talk"
+msgstr "Gaplashamiz"
+
+#: .\templates\index.html:37
+msgid "Categories of The Month"
+msgstr "Oylik kategoriyalar"
+
+#: .\templates\index.html:39
+msgid ""
+"\n"
+"                    Excepteur sint occaecat cupidatat non proident, sunt in "
+"culpa qui officia\n"
+"                    deserunt mollit anim id est laborum.\n"
+"                    "
+msgstr ""
+
+#: .\templates\index.html:56
+msgid "Go Shop"
+msgstr "Xarid qilish"
+
+#: .\templates\index.html:70
+msgid "Featured Product"
+msgstr "Tanlangan mahsulotlar"
+
+#: .\templates\index.html:72
+msgid ""
+"\n"
+"                        Reprehenderit in voluptate velit esse cillum dolore "
+"eu fugiat nulla pariatur.\n"
+"                        Excepteur sint occaecat cupidatat non proident.\n"
+"                        "
+msgstr ""
+
+#: .\templates\index.html:104
+#, python-format
+msgid "Reviews (%(count)s)"
+msgstr "Sharhlar (%(count)s)"
+
+#: .\templates\login.html:9
+msgid "Login"
+msgstr "Kirish"
+
+#: .\templates\login.html:242
+msgid "Welcome Back"
+msgstr "Xush kelibsiz"
+
+#: .\templates\login.html:243
+msgid "Sign in to your account"
+msgstr "Hisobingizga kiring"
+
+#: .\templates\login.html:249 .\templates\register.html:222
+msgid "Username"
+msgstr "Foydalanuvchi nomi"
+
+#: .\templates\login.html:254 .\templates\register.html:227
+msgid "Enter your username"
+msgstr "Foydalanuvchi nomini kiriting"
+
+#: .\templates\login.html:261 .\templates\register.html:268
+msgid "Password"
+msgstr "Parol"
+
+#: .\templates\login.html:266
+msgid "Enter your password"
+msgstr "Parolingizni kiriting"
+
+#: .\templates\login.html:276
+msgid "Remember me"
+msgstr "Meni eslab qol"
+
+#: .\templates\login.html:279
+msgid "Forgot password?"
+msgstr "Parolni unutdingizmi?"
+
+#: .\templates\login.html:283 .\templates\register.html:297
+msgid "Sign In"
+msgstr "Kirish"
+
+#: .\templates\login.html:287
+msgid "Don't have an account?"
+msgstr "Hisobingiz yo'qmi?"
+
+#: .\templates\login.html:287 .\templates\register.html:215
+#: .\templates\register.html:293
+msgid "Create Account"
+msgstr "Hisob yaratish"
+
+#: .\templates\profile.html:9
+msgid "My Profile"
+msgstr "Mening profilim"
+
+#: .\templates\profile.html:323
+#, python-format
+msgid "%(username)s avatar"
+msgstr "%(username)s avatari"
+
+#: .\templates\profile.html:331
+msgid "Member since"
+msgstr "A'zo bo'lgan sanasi:"
+
+#: .\templates\profile.html:336
+msgid "Orders"
+msgstr "Buyurtmalar"
+
+#: .\templates\profile.html:340 .\templates\profile.html:411
+msgid "Wishlist"
+msgstr "Istaklar"
+
+#: .\templates\profile.html:344
+msgid "Reviews"
+msgstr "Sharhlar"
+
+#: .\templates\profile.html:354
+msgid "Personal Information"
+msgstr "Shaxsiy ma'lumotlar"
+
+#: .\templates\profile.html:355 .\templates\profile.html:493
+msgid "Edit"
+msgstr "Tahrirlash"
+
+#: .\templates\profile.html:361 .\templates\register.html:233
+msgid "First Name"
+msgstr "Ism"
+
+#: .\templates\profile.html:371 .\templates\register.html:244
+msgid "Last Name"
+msgstr "Familiya"
+
+#: .\templates\profile.html:382 .\templates\register.html:256
+msgid "Email Address"
+msgstr "Email manzil"
+
+#: .\templates\profile.html:393
+msgid "Avatar"
+msgstr ""
+
+#: .\templates\profile.html:403
+msgid "Save Changes"
+msgstr "O'zgarishlarni saqlash"
+
+#: .\templates\profile.html:412
+msgid "View All"
+msgstr "Barchasini ko'rish"
+
+#: .\templates\profile.html:430
+msgid "Add to Cart"
+msgstr "Savatga qo'shish"
+
+#: .\templates\profile.html:434 .\templates\profile.html:468
+msgid "Remove"
+msgstr "O'chirish"
+
+#: .\templates\profile.html:440
+msgid "Your wishlist is empty."
+msgstr "Istaklar ro'yxatingiz bo'sh."
+
+#: .\templates\profile.html:448
+msgid "View Cart"
+msgstr "Savatni ko'rish"
+
+#: .\templates\profile.html:474
+msgid "Your cart is empty."
+msgstr "Savatchangiz bo'sh."
+
+#: .\templates\profile.html:479
+msgid "Sign Out"
+msgstr "Chiqish"
+
+#: .\templates\profile.html:494
+msgid "Cancel"
+msgstr "Bekor qilish"
+
+#: .\templates\register.html:9
+msgid "Register"
+msgstr "Ro'yxatdan o'tish"
+
+#: .\templates\register.html:216
+msgid "Join our community"
+msgstr "Jamiyatimizga qo'shiling"
+
+#: .\templates\register.html:238
+msgid "Enter your first name"
+msgstr "Ismingizni kiriting"
+
+#: .\templates\register.html:249
+msgid "Enter your last name"
+msgstr "Familiyangizni kiriting"
+
+#: .\templates\register.html:261
+msgid "Enter your email"
+msgstr "Emailingizni kiriting"
+
+#: .\templates\register.html:273
+msgid "Create a password"
+msgstr "Parol yarating"
+
+#: .\templates\register.html:281
+msgid "Confirm Password"
+msgstr "Parolni tasdiqlang"
+
+#: .\templates\register.html:286
+msgid "Confirm your password"
+msgstr "Parolingizni qayta kiriting"
+
+#: .\templates\register.html:297
+msgid "Already have an account?"
+msgstr "Hisobingiz bormi?"
+
+#: .\templates\shop-single.html:66
+msgid "Rating"
+msgstr "Reyting"
+
+#: .\templates\shop-single.html:83
+msgid "Available Color"
+msgstr "Mavjud ranglar"
+
+#: .\templates\shop-single.html:141
+msgid "Buy"
+msgstr "Xarid qilish"
+
+#: .\templates\shop-single.html:148
+msgid "Add To Cart"
+msgstr "Savatga qo'shish"
+
+#: .\templates\shop-single.html:164
+msgid "Related Products"
+msgstr "O'xshash mahsulotlar"
+
+#: .\templates\shop.html:61
+msgid "All"
+msgstr "Barchasi"
+
+#: .\templates\shop.html:64
+msgid "Men's"
+msgstr "Erkaklar uchun"
+
+#: .\templates\shop.html:67
+msgid "Women's"
+msgstr "Ayollar uchun"
+
+#: .\templates\shop.html:74
+msgid "Featured"
+msgstr "Tavsiya etilgan"
+
+#: .\templates\shop.html:75
+msgid "A to Z"
+msgstr "A dan Z gacha"
+
+#: .\templates\shop.html:76
+msgid "Item"
+msgstr "Mahsulot"
+
+#: .\templates\shop.html:212
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+"Lorem ipsum dolor sit amet."
+msgstr ""
+
+#: .\templates\shop_filters.html:4
+msgid "Filters"
+msgstr "Filtrlar"
+
+#: .\templates\shop_filters.html:80
+msgid "Clear Filters"
+msgstr "Filtrlarni tozalash"
+
+#: .\templates\shop_filters.html:81
+msgid "Apply filters"
+msgstr "Filtrlarni qo'llash"
+
+#: .\templates\wishlist.html:365
+msgid "My Wishlist"
+msgstr "Mening istaklarim"
+
+#: .\templates\wishlist.html:367
+#, python-format
+msgid "%(counter)s item"
+msgid_plural "%(counter)s items"
+msgstr[0] "%(counter)s ta mahsulot"
+
+#: .\templates\wishlist.html:371
+msgid "Add All to Cart"
+msgstr "Barchasini savatga qo'shish"
+
+#: .\templates\wishlist.html:372
+msgid "Clear Wishlist"
+msgstr "Istaklarni tozalash"
+
+#: .\templates\wishlist.html:383
+msgid "Eco-friendly Water Bottle"
+msgstr ""
+
+#: .\templates\wishlist.html:406
+msgid "View Details"
+msgstr "Batafsil ko'rish"
+
+#: .\templates\wishlist.html:415
+msgid "Your wishlist is empty"
+msgstr "Istaklar ro'yxatingiz bo'sh"
+
+#: .\templates\wishlist.html:417
+msgid ""
+"Browse our eco-friendly products and add your favorites to your wishlist."
+msgstr "Ekologik toza mahsulotlarimizni ko'ring va yoqtirganingizni istaklaringizga qo'shing."
+
+#: .\templates\wishlist.html:420
+msgid "Shop Now"
+msgstr "Hozir xarid qilish"
+
+#: .\templates\wishlist.html:430
+msgid "Item added to cart successfully!"
+msgstr "Mahsulot savatchaga muvaffaqiyatli qo'shildi!"

@@ -1,0 +1,445 @@
+{% extends 'layouts/base.html' %}
+
+{% load i18n %}
+
+{% load static %}
+
+{% block extra_css %}
+<style>
+    :root {
+        --transition-speed: 0.3s;
+        --primary-color: #3f51b5;
+        --secondary-color: #64b5f6;
+        --accent-color: #ffb74d;
+        --background-color: #ffffff;
+        --card-background: #f8f9fa;
+        --text-color: #333333;
+        --text-light: #6c757d;
+        --border-color: #e0e0e0;
+        --shadow-color: rgba(0, 0, 0, 0.05);
+    }
+
+    [data-gender="female"] {
+        --primary-color: #e91e63;
+        --secondary-color: #f48fb1;
+        --accent-color: #ce93d8;
+        --background-color: #fff9fa;
+        --card-background: #fef5f7;
+        --text-color: #4a4a4a;
+        --text-light: #7d7d7d;
+        --border-color: #f0d4db;
+        --shadow-color: rgba(233, 30, 99, 0.05);
+    }
+
+    [data-theme="dark"] {
+        --primary-color: #5c6bc0;
+        --secondary-color: #81d4fa;
+        --accent-color: #ffcc80;
+        --background-color: #121212;
+        --card-background: #1e1e1e;
+        --text-color: #f5f5f5;
+        --text-light: #adb5bd;
+        --border-color: #2d2d2d;
+        --shadow-color: rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="dark"][data-gender="female"] {
+        --primary-color: #f06292;
+        --secondary-color: #f8bbd0;
+        --accent-color: #d1c4e9;
+        --background-color: #1a1617;
+        --card-background: #261e21;
+        --text-color: #f5f5f5;
+        --text-light: #bdbdbd;
+        --border-color: #3d2d33;
+        --shadow-color: rgba(240, 98, 146, 0.1);
+    }
+
+    .section {
+        margin-top: 30px;
+    }
+
+    .section h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .cart-layout {
+        display: grid;
+        grid-template-columns: 1fr 350px;
+        gap: 30px;
+    }
+
+    .cart-header {
+        display: grid;
+        grid-template-columns: 100px 1fr 120px 120px 50px;
+        gap: 20px;
+        padding: 0 20px 15px;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+
+    .cart-header div:nth-child(3) {
+        text-align: center;
+    }
+
+    .cart-header div:nth-child(4) {
+        text-align: right;
+    }
+
+    .cart-item {
+        display: grid;
+        grid-template-columns: 100px 1fr 120px 120px 50px;
+        gap: 20px;
+        align-items: center;
+        padding: 20px;
+        background-color: var(--card-background);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        margin-bottom: 20px;
+    }
+
+    .item-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .item-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .item-details h3 {
+        margin-bottom: 5px;
+    }
+
+    .item-details p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .item-quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .item-quantity div {
+        display: flex;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .item-quantity button {
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+
+    .item-quantity input {
+        width: 40px;
+        height: 30px;
+        border: none;
+        text-align: center;
+        font-family: 'Quicksand', sans-serif;
+    }
+
+    .item-price {
+        font-weight: 600;
+        color: var(--primary-color);
+        text-align: right;
+    }
+
+    .item-remove {
+        text-align: center;
+    }
+
+    .item-remove button {
+        background: none;
+        border: none;
+        color: var(--text-light);
+        cursor: pointer;
+        font-size: 1.2rem;
+    }
+
+    .cart-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+
+    .coupon {
+        display: flex;
+        gap: 10px;
+        max-width: 400px;
+    }
+
+    .cart-summary {
+        background-color: var(--card-background);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+        padding: 30px;
+        height: fit-content;
+    }
+
+    .cart-summary h2 {
+        margin-bottom: 20px;
+    }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .summary-row.total {
+        padding-top: 15px;
+        margin-bottom: 20px;
+        border-top: 1px solid var(--border-color);
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .summary-row.total span:last-child {
+        color: var(--primary-color);
+    }
+
+    .empty-cart {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: var(--card-background);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px var(--shadow-color);
+    }
+
+    .empty-cart i {
+        font-size: 4rem;
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+
+    .empty-cart p {
+        color: var(--text-light);
+        margin-bottom: 20px;
+    }
+
+    .payment-methods p {
+        margin-bottom: 10px;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .payment-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .payment-icons i {
+        font-size: 2rem;
+        color: var(--text-light);
+    }
+
+    .color-dot {
+        display: inline-block;
+        border-radius: 50%;
+        border: 2px solid #ddd;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1>{% trans 'Shopping Cart' %}</h1>
+
+        <div class="cart-layout">
+            {% if products %}
+            <div class="cart-items">
+                <div class="cart-header">
+                    <div>{% trans 'Product' %}</div>
+                    <div>{% trans 'Description' %}</div>
+                    <div>{% trans 'Quantity' %}</div>
+                    <div>{% trans 'Price' %}</div>
+                    <div></div>
+                </div>
+
+                {% for product in products %}
+                <div class="cart-item">
+                    <div class="item-image">
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}"/>
+                        {% endif %}
+                    </div>
+                    <div class="item-details">
+                        <h3>{{ product.name }}</h3>
+                        <p>{{ product.short_description }}</p>
+                    </div>
+                    <div class="item-quantity">
+                        <div>
+                            <button>-</button>
+                            <input type="number" value="1" min="1"/>
+                            <button>+</button>
+                        </div>
+                    </div>
+                    <div class="item-price">${{ product.get_price }}</div>
+                    <div class="item-remove">
+                        <a href="{% url 'product:cart-delete' pk=product.pk %}?next={{ request.get_full_path|urlencode }}">
+                            <i class="fas fa-times"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="cart-actions">
+                    <div class="coupon">
+                        <input type="text" placeholder="{% trans 'Coupon code' %}" class="form-control"/>
+                        <button class="btn btn-outline">{% trans 'Apply Coupon' %}</button>
+                    </div>
+                    <button class="btn btn-outline">{% trans 'Update Cart' %}</button>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>{% trans 'Your cart is empty' %}</h2>
+                <p>{% trans "Looks like you haven't added any items to your cart yet." %}</p>
+                <a href="{% url 'product:shop' %}" class="btn btn-primary">{% trans 'Continue Shopping' %}</a>
+            </div>
+            {% endif %}
+
+            <div class="cart-summary">
+                <h2>{% trans 'Cart Summary' %}</h2>
+
+                <div class="summary-row">
+                    <span>{% trans 'Subtotal' %}</span>
+                    <span style="font-weight: 600">$84.96</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>{% trans 'Shipping' %}</span>
+                    <span style="font-weight: 600">$5.00</span>
+                </div>
+
+                <div class="summary-row">
+                    <span>{% trans 'Tax' %}</span>
+                    <span style="font-weight: 600">$8.50</span>
+                </div>
+
+                <div class="summary-row total">
+                    <span>{% trans 'Total' %}</span>
+                    <span>$98.46</span>
+                </div>
+
+                <button class="btn btn-success" style="width: 100%; margin-bottom: 20px">
+                    {% trans 'Proceed to Checkout' %}
+                </button>
+
+                <div class="payment-methods">
+                    <p>{% trans 'We accept:' %}</p>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">{% trans 'You May Also Like' %}</h2>
+
+        <div class="row">
+            {% for product in related %}
+                <div class="col-6 col-md-4 col-lg-3 p-2 pb-3">
+                    <div class="product-wap card rounded-0">
+                        <div class="card rounded-0">
+                            {% if product.image %}
+                                <img class="card-img rounded-0 img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% endif %}
+
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li>
+                                        <a class="btn btn-success text-white"
+                                           href="{% url 'product:wishlist-create' pk=product.pk %}?next={{ request.get_full_path|urlencode }}">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="btn btn-success text-white mt-2"
+                                           href="{% url 'product:detail' pk=product.pk %}">
+                                            <i class="far fa-eye"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="btn btn-success text-white mt-2"
+                                           href="{% url 'product:cart-create' pk=product.pk %}?next={{ request.get_full_path|urlencode }}">
+                                            <i class="fas fa-cart-plus"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <a href="{% url 'product:detail' pk=product.pk %}"
+                               class="h3 text-decoration-none">{{ product.name }}</a>
+
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>
+                                    {% for size in product.sizes.all %}
+                                        {{ size.size }}{% if not forloop.last %}/{% endif %}
+                                    {% endfor %}
+                                </li>
+                            </ul>
+
+                            <ul class="w-100 list-unstyled d-flex gap-2 mb-0">
+                                <li class="pt-2">
+                                    {% for color in product.colors.all %}
+                                        <span class="color-dot"
+                                              style="width: 25px; height: 25px; background-color: {{ color.color }};"></span>
+                                    {% endfor %}
+                                </li>
+                            </ul>
+
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+
+                            <p class="text-center mb-0">
+                                ${{ product.get_price }}
+
+                                {% if product.is_discount %}
+                                    <small><strike>${{ product.price }}</strike></small>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

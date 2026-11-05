@@ -1,0 +1,244 @@
+{% extends 'layouts/base.html' %}
+
+{% load i18n %}
+{% load static %}
+{% block extra_css %}
+    <style>
+        .color-list {
+            display: flex;
+            gap: 10px;
+            padding: 0;
+            margin: 10px 0;
+            list-style: none;
+        }
+
+        .color-dot {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            transition: all 0.2s ease;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.15);
+            border-color: #333;
+        }
+
+        .color-dot.active {
+            border: 2px solid black;
+            box-shadow: 0 0 0 2px white inset;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section class="bg-light">
+        <div class="container pb-5">
+            <div class="row">
+                <div class="col-lg-5 mt-5">
+                    <div class="card mb-3">
+                        <img class="card-img img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}"
+                             id="product-detail">
+                    </div>
+                </div>
+
+                <div class="col-lg-7 mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h1 class="h2">{{ product.name }}</h1>
+
+                            <p class="h3 py-2">
+                                ${{ product.get_price }}
+                                {% if product.is_discount %}
+                                    <small><strike>${{ product.price }}</strike></small>
+                                {% endif %}
+                            </p>
+
+                            <p class="py-2">
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-secondary"></i>
+                                <span class="list-inline-item text-dark">{% trans 'Rating' %} 4.8 | 36 {% trans 'Comments' %}</span>
+                            </p>
+
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>{% trans 'Brand' %}:</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <p class="text-muted"><strong>{{ product.brand.name }}</strong></p>
+                                </li>
+                            </ul>
+
+                            <h6>{% trans 'Description' %}:</h6>
+                            <p>{{ product.long_description }}</p>
+
+                            <ul class="list-inline">
+                                <li class="list-inline-item">
+                                    <h6>{% trans 'Available Color' %} :</h6>
+                                </li>
+                                <li class="list-inline-item">
+                                    <div class="color-list">
+                                        {% for color in product.colors.all %}
+                                            <span class="color-dot"
+                                                  title="{{ color.color }}"
+                                                  style="background-color: {{ color.color }};"></span>
+                                        {% endfor %}
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <form action="" method="GET">
+                                <input type="hidden" name="product-title" value="Activewear">
+
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            <li class="list-inline-item">
+                                                {% trans 'Size' %} :
+                                                <input type="hidden" name="product-size" id="product-size" value="S">
+                                            </li>
+
+                                            {% for size in product.sizes.all %}
+                                                <li class="list-inline-item">
+                                                    <span class="btn btn-success btn-size">{{ size.size }}</span>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-auto">
+                                        <ul class="list-inline pb-3">
+                                            <li class="list-inline-item text-right">
+                                                {% trans 'Quantity' %}
+                                                <input type="hidden" name="product-quanity" id="product-quanity"
+                                                       value="1">
+                                            </li>
+
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success" id="btn-minus">-</span>
+                                            </li>
+
+                                            <li class="list-inline-item">
+                                                <span class="badge bg-secondary" id="var-value">1</span>
+                                            </li>
+
+                                            <li class="list-inline-item">
+                                                <span class="btn btn-success" id="btn-plus">+</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="row pb-3">
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">
+                                            {% trans 'Buy' %}
+                                        </button>
+                                    </div>
+
+                                    <div class="col d-grid">
+                                        <button type="submit" class="btn btn-success btn-lg" name="submit"
+                                                value="addtocard">
+                                            {% trans 'Add To Cart' %}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Start Related Products -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-left p-2 pb-3">
+                <h4>{% trans 'Related Products' %}</h4>
+            </div>
+
+            <div class="row">
+                {% for product in related_product %}
+                    <div class="col-6 col-md-4 col-lg-3 p-2 pb-3">
+                        <div class="product-wap card rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="{{ product.image.url }}">
+
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a class="btn btn-success text-white"
+                                               href="{% url 'product:wishlist-create' pk=product.pk %}?next={{ request.get_full_path|urlencode }}">
+                                                <i class="far fa-heart"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="btn btn-success text-white mt-2"
+                                               href="{% url 'product:detail' pk=product.pk %}">
+                                                <i class="far fa-eye"></i>
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="btn btn-success text-white mt-2"
+                                               href="{% url 'product:cart-create' pk=product.pk %}?next={{ request.get_full_path|urlencode }}">
+                                                <i class="fas fa-cart-plus"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <a href="{% url 'product:detail' pk=product.pk %}"
+                                    class="h3 text-decoration-none">{{ product.name }}</a>
+                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                    <li>
+                                        {% for size in product.sizes.all %}
+                                            {{ size.size }}/
+                                        {% endfor %}
+                                    </li>
+                                </ul>
+                                <ul class="w-100 list-unstyled d-flex gap-2 mb-0">
+                                    <li class="pt-2">
+                                        {% for color in product.colors.all %}
+                                            <span class="color-dot"
+                                                style="width: 25px; height: 25px; background-color: {{ color.color }}; border-radius: 50%"></span>
+                                        {% endfor %}
+                                    </li>
+                                </ul>
+
+                                <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                    <li>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-warning fa fa-star"></i>
+                                        <i class="text-muted fa fa-star"></i>
+                                    </li>
+                                </ul>
+
+                                <p class="text-center mb-0">
+                                    ${{ product.get_price }}
+
+                                    {% if product.is_discount %}
+                                        <small><strike>${{ product.price }}</strike></small>
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- End Related Products -->
+{% endblock %}
